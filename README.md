@@ -23,8 +23,8 @@ git clone https://github.com/AlexeyBashmakov/Web_arithmetic_calculator.git<br>
 2) скачать проект с репозитория как архив zip и разархивировать, появится папка `Web_arithmetic_calculator`.
 
 Далее работа с проектом в обоих вариантах установки совпадает, но различается в зависимости от операционной системы.<br>
-В директории `Web_arithmetic_calculator/calculator/cmd/` находится файл `main.go`, который является
-точкой входа в приложение. Также здесь находятся файлы с расширениями `.bat` и `.sh`. Первые используются для работы с приложением в ОС Windows, вторые - в ОС Linux.
+В директории `Web_arithmetic_calculator/calculator/cmd/` находится файл `main.go`, который является точкой входа в приложение.<br>
+В директории `Web_arithmetic_calculator/calculator/bin/` находятся файлы с расширениями `.bat` и `.sh`. Первые используются для работы с приложением в ОС Windows, вторые - в ОС Linux.
 ### ОС Windows
 Для того чтобы проект можно было запустить на исполнение необходимо в папке `Web_arithmetic_calculator/calculator/cmd/`
 запустить скрипт `build.bat` при этом go соберёт исполняемый файл `main.exe`<br>
