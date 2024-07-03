@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "comic";
+    src: url("comic.ttf");
+}
+@font-face {
+    font-family: "2Dumb";
+    src: url("2Dumb.ttf");
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    background-color: #aaaaaa; /* ghostwhite */
+}
+h2 {
+    font-family: "comic";
+    margin-left: 10px;
+}
+p {
+	font: 1.2em sans-serif;
+	margin-left: 10px;
+}
+form {
+    width: 90%;
+}
+input {
+    display: block;
+    font-size: 18px;
+    padding: 15px;
+    margin: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 100%;
+}
+._btn:hover {
+    background-color: #ffaaff;
+    font-style: italic;
+}
+._column {
+    flex: 1;
+}
+._left {
+    background-color: #aaffaa; /* ghostwhite */
+}
+._center {
+    background-color: #99ee99; /* ghostwhite */
+}
+._right {
+    background-color: #88dd88; /* ghostwhite */
+}
+.div-expressions-table-body {
+	height: 20vh; /*300px;*/
+	overflow-x: auto;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+}
+.div-expressions-table table {
+	width:100%;
+	table-layout: fixed;
+	border: none;
+}
+.div-expressions-table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 10px 15px;
+	background: #aaffff;
+	font-size: 14px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.div-expressions-table tbody td {
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+/* круглые края первой ячейки заголовка таблицы*/
+.div-expressions-table thead tr th:first-child {
+	border-radius: 10px 0 0 10px;
+}
+/* круглые края последней ячейки заголовка таблицы*/
+.div-expressions-table thead tr th:last-child {
+	border-radius: 0 10px 10px 0;
+}
+/* круглые края первой ячейки строки таблицы*/
+.div-expressions-table tbody tr td:first-child {
+	border-radius: 8px 0 0 8px;
+}
+/* круглые края последней ячейки строки таблицы*/
+.div-expressions-table tbody tr td:last-child {
+	border-radius: 0 8px 8px 0;
+}
+.div-expressions-table tbody tr:nth-child(even){
+	background: #f3f3f3;
+}
+.div-expressions-table tbody tr:nth-child(odd){
+	background: #a3a3a3;
+}
+/* Стили для скролла таблицы */
+::-webkit-scrollbar {
+	width: 6px;
+} 
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+/*#identifier_of_expression {
+	font-family: "2Dumb", sans-serif;
+	font-size: 1.2em;
+}*/
+.identifier_of_expression, .type_of_expression, .result_of_expression {
+	font-family: "2Dumb", sans-serif;
+	font-size: 1.2em;
+}

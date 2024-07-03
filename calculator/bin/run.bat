@@ -1,0 +1,14 @@
+@echo off
+
+:: <- так начинается комментарий
+
+set COMPUTING_POWER=2
+set TIME_ADDITION_MS=10000
+set TIME_SUBSTRACTION_MS=10000
+set TIME_MULTIPLICATIONS_MS=10000
+set TIME_DIVISIONS_MS=10000
+
+set PORT=8080
+
+main.exe & call;
+

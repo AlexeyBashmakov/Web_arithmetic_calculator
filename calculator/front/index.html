@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вычислитель</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="script0.js"></script>
+</head>
+<body>
+    <div class="_column _left">
+        <h2>Добавление вычисления арифметического выражения</h2>
+        <form>
+            <input type="text" name="expression" value="" placeholder="Выражение" id="expression">
+            <input type="submit" value="Добавить" class="_btn add_button" id="add_button">
+        </form>
+        <p>Идентификатор выражения: <span class="identifier_of_expression" id="identifier_of_expression"></span></p>
+    </div>
+
+    <div class="_column _center">
+        <h2>Получение выражения по его идентификатору</h2>
+        <form>
+            <input type="text" name="identificator" value="" placeholder="Идентификатор - число" pattern="^[0-9]+$" id="identificator">
+            <input type="submit" value="Получить" class="_btn get_button" id="get_by_id_button">
+        </form>
+        <p>Выражение<br><span id="expression_by_id"></span></p>
+    </div>
+
+    <div class="_column _right">
+        <h2>Список выражений</h2>
+        <div class="div-expressions-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Идентификатор</th>
+                        <th>Статус вычисления</th>
+                        <th>Результат</th>
+                    </tr>
+                </thead>
+            </table>	
+            <div class="div-expressions-table-body">
+                <table id="expressions-table-body">
+                    <tbody>
+                        <tr>
+                            <td>Азу</td>
+                            <td>11,9</td>
+                            <td>14,2</td>
+                        </tr>
+                        <tr>
+                            <td>Казу</td>
+                            <td>12,9</td>
+                            <td>13,2</td>
+                        </tr>
+                        <tr>
+                            <td>Кразу</td>
+                            <td>122,9</td>
+                            <td>13,32</td>
+                        </tr>
+                        <tr>
+                            <td>Газу</td>
+                            <td>-12,9</td>
+                            <td>143,2</td>
+                        </tr>
+                        <tr>
+                            <td>Кразус</td>
+                            <td>122,99</td>
+                            <td>-13,32</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>	
+        </div>
+    </div>
+</body>
+</html>
