@@ -1,0 +1,228 @@
+body {
+    background: linear-gradient(to right, pink, transparent, pink);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;*/
+}
+/*.container {
+    margin: 20%; /* Отступы вокруг */
+/*}*/
+input {
+    display: block;
+    font-size: 21px;
+    padding: 15px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 100%;
+}
+form {
+    width: 90%;
+    min-width: 250px;
+    max-width: 350px;
+}
+/* 
+всё что ниже по мотивам
+https://habr.com/ru/articles/140816/
+*/
+label {
+    font-size: 18px;
+}
+a.hiddenanchor{
+	display: none;
+}
+#wrapper {
+    width: 60%;
+	right: 0px;
+	min-height: 700px;
+	margin: 10px auto;
+	width: 500px;
+	position: relative;
+}
+#wrapper a{
+	color: rgb(95, 155, 198);
+	text-decoration: underline;
+}
+#wrapper h1{
+	font-size: 32px;
+	color: rgb(6, 106, 117);
+	padding: 2px 0 10px 0;
+	font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 30px;
+}
+#wrapper h1{
+    background: -webkit-repeating-linear-gradient(-45deg, 
+	rgb(18, 83, 93) , 
+	rgb(18, 83, 93) 20px, 
+	rgb(64, 111, 118) 20px, 
+	rgb(64, 111, 118) 40px, 
+	rgb(18, 83, 93) 40px);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}
+#wrapper h1:after{
+	content: ' ';
+	display: block;
+	width: 100%;
+	height: 2px;
+	margin-top: 10px;
+	background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%); 
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0))); 
+	background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+	background: -o-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+	background: -ms-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+	background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+}
+#wrapper p{
+	margin-bottom:15px;
+}
+#wrapper p:first-child{
+	margin: 0px;
+}
+#wrapper label{
+	color: rgb(64, 92, 96);
+	position: relative;
+}
+#wrapper p.login.button input{
+	width: 30%;
+}
+#wrapper p.signin.button input{
+	width: 70%;
+}
+#wrapper p.button input{
+	cursor: pointer;	
+	background: rgb(61, 157, 179);
+	padding: 8px 5px;
+	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
+	color: #fff;
+	font-size: 24px;	
+	border: 1px solid rgb(28, 108, 122);	
+	margin-bottom: 10px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;	
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	   -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	        box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+	        0px 0px 0px 3px rgb(254, 254, 254),
+	        0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	   -moz-transition: all 0.2s linear;
+	     -o-transition: all 0.2s linear;
+	        transition: all 0.2s linear;
+}
+#wrapper p.button input:hover{
+    background: rgb(74, 179, 198);
+}
+#wrapper p.button{
+    position: relative;
+    right: 0px;
+	/*text-align: center;
+	margin: 5px 0;*/
+}
+p.change_link{
+    position: absolute;
+    right: 10px;
+}
+#wrapper p.change_link a {
+	display: inline-block;
+	font-weight: bold;
+	background: rgb(247, 248, 241);
+	padding: 2px 6px;
+	color: rgb(29, 162, 193);
+	margin-left: 10px;
+	text-decoration: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid rgb(203, 213, 214);
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s  linear;
+	-o-transition: all 0.4s linear;
+	-ms-transition: all 0.4s  linear;
+	transition: all 0.4s  linear;
+}
+/** Styling both forms **/
+#register, 
+#login{
+	position: absolute;
+	top: 0px;
+	width: 88%;	
+	padding: 18px 6% 60px 6%;
+	margin: 0 0 35px 0;
+	background: rgb(247, 247, 247);
+	border: 1px solid rgba(147, 184, 189,0.8);
+	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	-webkit-box-shadow: 5px;
+	-moz-border-radius: 5px;
+		 border-radius: 5px;
+}
+#register{	
+	z-index: 21; /* назначим этот параметр на 21, чтобы поставить его “под” форму входа */
+	opacity: 0; /* прячем вторую форму, назначив opacity на 0 */
+}
+#login{
+	z-index: 22;
+}
+/* меняем формы местами, используя псевдо класс :target. 
+Вам нужно понять одну вещь по поводу :target: для перемещения мы будем использовать якоря. 
+Нормальное поведение якоря — прыжок на определенный элемент страницы. 
+Но мы не хотим этого, мы лишь хотим поменять формы местами. 
+И тут приходит на помощь наш трюк с использованием двух ссылок в начале страницы. 
+Вместо того, чтобы направить нас прямо на вторую форму, рискуя испытать эффект “прыжка”, мы придадим ссылкам параметр display: none. 
+Это поможет избежать прыжков. Я обнаружил этот трюк на сайте:
+https://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4
+(французский язык).
+*/
+#toregister:target ~ #wrapper #register,
+#tologin:target ~ #wrapper #login{
+    z-index: 22;
+    animation-name: fadeInLeft;
+    animation-delay: .1s;
+}
+/* 
+Вот, что происходит: когда мы кликаем на кнопку Зарегистрироваться, мы направляемся на #toregister. 
+Затем происходит анимация и лишь потом переходим на элемент #register. 
+Мы используем анимацию под названием fadeInLeft. 
+Так как мы “прячем” форму, используя нулевую прозрачность, мы применим анимацию, которая будем постепенно появляться. 
+Мы также изменили z-index, чтобы она появилась поверх другой формы. 
+То же самое происходит для другой формы same happens for the other form.
+*/
+.animate{
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+ 
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+#toregister:target ~ #wrapper #login,
+#tologin:target ~ #wrapper #register{
+	/*-webkit-animation-name: fadeOutLeft;
+	-moz-animation-name: fadeOutLeft;
+	-ms-animation-name: fadeOutLeft;
+	-o-animation-name: fadeOutLeft;*/
+	animation-name: fadeOutLeft;
+}
