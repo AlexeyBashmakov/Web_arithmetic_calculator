@@ -1,4 +1,5 @@
 #!/bin/bash
-go build -ldflags="-s -w" ../cmd/main.go
 
-chmod +x *.sh
+go mod tidy
+
+go build -ldflags="-s -w" ../cmd/main.go
