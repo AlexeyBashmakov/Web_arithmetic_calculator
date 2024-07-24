@@ -6,24 +6,30 @@ import (
 	"runtime"
 	"strconv"
 
-	"web_calculator/internal/constants"
+	"web_arithmetic_calculator/internal/constants"
 )
 
-const time_default = "10000"
-const port = "7777"
+const (
+	time_default    = "10000"
+	expired_default = "100"
+	http_port       = "7777"
+	rpc_port        = "5000"
+)
 
+var env_vars = []string{
+	constants.TimeAdd,
+	constants.TimeSub,
+	constants.TimeMult,
+	constants.TimeDiv,
+	constants.TimeRequ,
+	constants.TimeTokenExpired,
+	constants.CompPow,
+	constants.HTTP_PORT,
+	constants.RPC_PORT,
+}
+
+// функция проверяет, установлены-ли переменные окружения
 func CheckEnvironmentVariables() bool {
-	env_vars := []string{
-		constants.TimeAdd,
-		constants.TimeSub,
-		constants.TimeMult,
-		constants.TimeDiv,
-		constants.CompPow,
-		constants.PORT,
-	}
-	// env_vars := []string{
-	// 	constants.PORT,
-	// }
 	exist := true
 	for _, k := range env_vars {
 		_, exist = os.LookupEnv(k)
@@ -31,18 +37,19 @@ func CheckEnvironmentVariables() bool {
 	return exist
 }
 
+// функция устанавливает переменные окружения в значения по умолчанию
 func SetEnvironmentVariables() error {
 	env_vars := map[string]string{
-		constants.TimeAdd:  time_default,
-		constants.TimeSub:  time_default,
-		constants.TimeMult: time_default,
-		constants.TimeDiv:  time_default,
-		constants.CompPow:  fmt.Sprintf("%d", runtime.NumCPU()/2),
-		constants.PORT:     port,
+		constants.TimeAdd:          time_default,
+		constants.TimeSub:          time_default,
+		constants.TimeMult:         time_default,
+		constants.TimeDiv:          time_default,
+		constants.TimeRequ:         time_default,
+		constants.TimeTokenExpired: expired_default,
+		constants.CompPow:          fmt.Sprintf("%d", runtime.NumCPU()/2),
+		constants.HTTP_PORT:        http_port,
+		constants.RPC_PORT:         rpc_port,
 	}
-	// env_vars := map[string]string{
-	// 	constants.PORT: "7777",
-	// }
 	var err error
 	for k, v := range env_vars {
 		err = os.Setenv(k, v)
@@ -54,47 +61,55 @@ func SetEnvironmentVariables() error {
 }
 
 func GetValue(name string) string {
-	if (name == constants.TimeAdd) || (name == constants.TimeSub) ||
-		(name == constants.TimeMult) || (name == constants.TimeDiv) ||
-		(name == constants.CompPow) || (name == constants.PORT) {
+	exist := false
+	for _, constant := range env_vars {
+		if name == constant {
+			exist = true
+			break
+		}
+	}
+	if exist {
+		// if (name == constants.TimeAdd) || (name == constants.TimeSub) ||
+		// 	(name == constants.TimeMult) || (name == constants.TimeDiv) ||
+		// 	(name == constants.CompPow) || (name == constants.PORT) {
 		val, exist := os.LookupEnv(name)
 		if !exist {
 			switch name {
-			case constants.TimeAdd, constants.TimeSub, constants.TimeMult, constants.TimeDiv:
+			case constants.TimeAdd, constants.TimeSub, constants.TimeMult, constants.TimeDiv, constants.TimeRequ:
 				err := os.Setenv(name, time_default)
 				if err != nil {
 					return ""
 				}
 				return time_default
+			case constants.TimeTokenExpired:
+				err := os.Setenv(name, expired_default)
+				if err != nil {
+					return ""
+				}
+				return expired_default
 			case constants.CompPow:
 				err := os.Setenv(name, fmt.Sprintf("%d", runtime.NumCPU()/2))
 				if err != nil {
 					return ""
 				}
 				return fmt.Sprintf("%d", runtime.NumCPU()/2)
-			case constants.PORT:
-				err := os.Setenv(name, port)
+			case constants.HTTP_PORT:
+				err := os.Setenv(name, http_port)
 				if err != nil {
 					return ""
 				}
-				return port
+				return http_port
+			case constants.RPC_PORT:
+				err := os.Setenv(name, rpc_port)
+				if err != nil {
+					return ""
+				}
+				return rpc_port
 			}
 		} else {
 			return val
 		}
 	}
-	/*if name == constants.PORT {
-		val, exist := os.LookupEnv(name)
-		if !exist {
-			if err := os.Setenv(name, port); err != nil {
-				return ""
-			} else {
-				return port
-			}
-		} else {
-			return val
-		}
-	}*/
 
 	return ""
 }

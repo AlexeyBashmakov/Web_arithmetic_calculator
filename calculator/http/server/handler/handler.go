@@ -4,22 +4,27 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"web_calculator/internal/service"
+	"web_arithmetic_calculator/internal/service"
 )
 
-func New(calcService service.Calc) (http.Handler, error) {
+func New(calcService *service.Calc) (http.Handler, error) {
 	m := http.NewServeMux()
 
+	// регистрация пользователя
+	m.HandleFunc("POST /api/v1/register", calcService.Registration)
+	// аутентификация пользователя
+	m.HandleFunc("POST /api/v1/login", calcService.Login)
 	// Добавление вычисления арифметического выражения
 	m.HandleFunc("POST /api/v1/calculate", calcService.Calculate)
 	// Получение выражения по его идентификатору
 	m.HandleFunc("GET /api/v1/expressions/{id}", calcService.Expression_id)
 	// Получение списка выражений
 	m.HandleFunc("GET /api/v1/expressions", calcService.Expressions)
+	// теперь следующие сервисы переходят на gRPC
 	// Получение задачи агентом для выполнения
-	m.HandleFunc("GET /internal/task", calcService.Task_get)
+	// m.HandleFunc("GET /internal/task", calcService.Task_get)
 	// Прием результата обработки данных от агента
-	m.HandleFunc("POST /internal/task", calcService.Task_result)
+	// m.HandleFunc("POST /internal/task", calcService.Task_result)
 
 	// Настройка раздачи статических файлов
 	// https://tproger.ru/translations/go-web-server?ysclid=lwqqie5cje972900801
