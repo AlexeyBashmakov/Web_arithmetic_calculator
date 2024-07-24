@@ -1,0 +1,27 @@
+syntax = "proto3"; // версия proto файлов
+package rpc; // название пакета
+option go_package = "web_arithmetic_calculator/proto"; // пакет, который мы только что создали
+
+// пустое сообщение для запроса задачи
+message TaskRequest {}
+// Сообщение, описывающее параметры задачи
+message TaskResponse {
+    string id = 1; // числа здесь - порядок полей в сообщении
+    double arg1 = 2;
+	double arg2 = 3;
+	string operation = 4;
+	double operation_time = 5;
+}
+// Сообщение для описания результата вычисления
+message ResultRequest {
+    string id = 1;
+	double result = 2;
+}
+// пустое сообщение для отправления результата
+message ResultResponse {}
+// Определение сервиса с двумя методами
+service RPCService {
+	// методы, которые можно будет реализовать и использовать 
+    rpc TaskGet (TaskRequest) returns (TaskResponse); 
+    rpc TaskResult (ResultRequest) returns (ResultResponse);
+}

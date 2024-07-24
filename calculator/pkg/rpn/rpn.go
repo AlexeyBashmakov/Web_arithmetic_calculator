@@ -3,8 +3,8 @@ package rpn
 import (
 	"strings"
 
-	"web_calculator/internal/constants"
-	"web_calculator/pkg/my_stack"
+	"web_arithmetic_calculator/internal/constants"
+	"web_arithmetic_calculator/pkg/my_stack"
 )
 
 const space = " "
@@ -92,7 +92,7 @@ func FromInfics(expression string) []string {
 				/* достаём из стека и записываем в ответ все операторы из стека пока они больше или
 				равны текущему по приоритету или пока стек не опустеет или пока не встретили открывающую скобку в стеке */
 				_s := stck.Pop() // верхний элемент стека
-				if (_s == opl) || (_s == omn) {
+				if (_s == opl) || (_s == omn) || (_s == op_b) {
 					stck.Push(_s)
 					break
 				}
